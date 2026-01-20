@@ -1,0 +1,16 @@
+services:
+
+  admin-backend:
+    build:
+      context: ./admin-transaction-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./admin-news-back-node:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: dev
+    env_file:
+      - ./admin-news-back-node/.env.dev
+    command: sh -c "npm install && npm run dev"
