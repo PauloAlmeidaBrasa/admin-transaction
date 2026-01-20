@@ -7,10 +7,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./admin-news-back-node:/app
+      - ./admin-transaction-back:/app
       - /app/node_modules
     environment:
-      NODE_ENV: dev
+      NODE_ENV: development
     env_file:
-      - ./admin-news-back-node/.env.dev
+      - ./admin-transaction-back/.env.dev
     command: sh -c "npm install && npm run dev"
