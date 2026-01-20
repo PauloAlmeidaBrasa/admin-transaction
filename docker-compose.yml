@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+
+
+  admin-backend:
+    image: admin-transaction-back
+    networks:
+      - backend-network
+    working_dir: /app
+    depends_on:
+      - db
+
+  #news-app:
+  #  build:
+ #     context: ../news-app
+  #    dockerfile: docker/news-app/Dockerfile
+  #  ports:
+  #    - "8080:8080"
+
+  db:
+    image: mysql:8.0
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 10
+    container_name: admin-backend-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      # MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: news_back_db
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: 123
+  
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend-network
+
+volumes:
+  db-data:
+
+networks:
+  backend-network:
+    driver: bridge
