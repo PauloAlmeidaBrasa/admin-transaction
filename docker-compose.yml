@@ -34,6 +34,12 @@ services:
     networks:
       - backend-network
 
+  admin-transaction-front:
+    build:
+      context: ./admin-transaction-front
+      dockerfile: Dockerfile
+    image: admin-transaction-front/dev
+
 volumes:
   db-data:
 

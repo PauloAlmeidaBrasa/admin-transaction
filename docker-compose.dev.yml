@@ -14,3 +14,13 @@ services:
     env_file:
       - ./admin-transaction-back/.env.dev
     command: sh -c "npm install && npm run dev"
+  
+  admin-transaction-front:
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./admin-transaction-front/.env.dev
+    volumes:
+      - ./admin-transaction-front/src:/app/src
+      - ./admin-transaction-front/public:/app/public
+    stdin_open: true
