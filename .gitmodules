@@ -1,3 +1,6 @@
 [submodule "admin-transaction-back"]
 	path = admin-transaction-back
 	url = https://github.com/PauloAlmeidaBrasa/admin-transaction-back.git
+[submodule "admin-transaction-front"]
+	path = admin-transaction-front
+	url = https://github.com/PauloAlmeidaBrasa/admin-transaction-front.git
