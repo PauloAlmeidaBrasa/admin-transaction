@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - ./admin-transaction-front/.env.dev
+      - ./admin-transaction-front/.env.development
     volumes:
       - ./admin-transaction-front/src:/app/src
       - ./admin-transaction-front/public:/app/public
